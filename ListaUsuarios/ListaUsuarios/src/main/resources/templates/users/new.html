@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Usuários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container pt-3">
+    <a th:href="@{'/users/index'}" class="btn btn-primary float-end">Voltar</a>
+    <h1>Novo Usuário</h1>
+    <hr>
+    <form method="post" th:action="@{/users/create}" th:object="${user}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" >
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">@</label>
+            <input type="text" class="form-control" id="arroba" name="arroba" aria-describedby="emailHelp" >
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" aria-describedby="emailHelp" >
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" th:field="*{email}">
+        </div>
+
+        <div class="mb-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input type="number" class="form-control" id="idade" name="idade" th:field="*{idade}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

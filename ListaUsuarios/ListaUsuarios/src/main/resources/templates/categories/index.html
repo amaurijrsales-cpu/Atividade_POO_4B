@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de Categorias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container pt-3">
+    <a th:href="@{'/categories/new'}" class="btn btn-primary float-end">Nova Categoria</a>
+    <h1>Lista de Categorias (<span th:text="${size}">0</span>)</h1>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <th scope="row" th:text="${category.id}">1</th>
+            <td th:text="${category.descricao}">Descrição da Categoria</td>
+            <td>
+                <a th:href="@{|/categories/delete/${category.id}|}" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
